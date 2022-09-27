@@ -2,11 +2,14 @@ package naming
 
 import (
 	"math/rand"
+	"time"
 )
 
 var names = []string{"Haoran", "Derek", "Iris", "Mike", "Tim", "Jenifer", "Ella", "Jianguo"}
 
 func CreateBabyName() string {
-	index := rand.Intn(len(names) - 1)
+	rand.Seed(time.Now().UnixNano())
+
+	index := rand.Intn(len(names))
 	return names[index]
 }
