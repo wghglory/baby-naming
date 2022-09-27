@@ -5,11 +5,17 @@ import (
 	"time"
 )
 
-var names = []string{"Haoran", "Derek", "Iris", "Mike", "Tim", "Jenifer", "Ella", "Jianguo"}
+var maleNames = []string{"Haoran", "Derek", "Mike", "Tim", "Jianguo"}
+var femaleNames = []string{"Iris", "Jenifer", "Ella"}
 
-func CreateBabyName() string {
+func CreateBabyName(male bool) string {
 	rand.Seed(time.Now().UnixNano())
 
-	index := rand.Intn(len(names))
-	return names[index]
+	if male {
+		index := rand.Intn(len(maleNames))
+		return maleNames[index]
+	} else {
+		index := rand.Intn(len(femaleNames))
+		return femaleNames[index]
+	}
 }
